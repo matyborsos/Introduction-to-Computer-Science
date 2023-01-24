@@ -1,0 +1,17 @@
+-- | Returns the sum of the products inside the equation
+sp :: Integral a => a -> a -> a
+sp 0 n = s 0 * s n
+sp n k = sp (n-1) (k+1) + s(k)*s(n)
+
+-- | Returns the large Schroder number
+s :: Integral a => a -> a
+s 0 = 1
+s n = s (n-1) + sp (n-1) 0
+
+sTests = TestList [ s 0 ~?= 1
+                 	     , s 1 ~?= 2
+                 	     , s 2 ~?= 6
+                 	     , s 3 ~?= 22
+                 	    ]
+                  
+main = runTestTT sTests

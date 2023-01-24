@@ -1,0 +1,25 @@
+Problem 4.4: munged passwords (haskell)
+
+a)
+sub :: Char -> Char     --type signature
+sub 'a' = '@'          	--the function's definition start,
+sub 'b' = '8'           	--it substitutes the character, if it is possible, 
+sub 'c' = '('           	--and returns either the character or a substitution of it.
+sub 'd' = '6'
+sub 'e' = '3'
+sub 'f' = '#'
+sub 'g' = '9'
+sub 'h' = '#'
+sub 'i' = '1'
+sub 'l' = '1'
+sub 'o' = '0'
+sub 'q' = '9'
+sub 's' = 's'
+sub 'x' = '%'
+sub 'y' = '?'
+sub  x  =  x 
+
+b)
+munge :: String -> String       --type signature
+munge z = map sub z             --definition starts, we use 'map' in order to apply the 'sub' function 
+                                		  --to every character of the string, returning a string.
